@@ -1,0 +1,49 @@
+[project]
+name = "commandfile-argo-tmp"
+dynamic = ["version"]
+description = "Commandfile integration with Argo Workflows"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "commandfile-tmp",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "setuptools_scm",
+]
+
+[project.scripts]
+generate-commandfile = "commandfile_argo.generator:main"
+
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[tool.ruff.lint]
+# See https://docs.astral.sh/ruff/rules
+select = [
+    "ASYNC",
+    "C",
+    "D2",
+    "D4",
+    "E",
+    "F",
+    "I",
+    "N",
+    "NPY",
+    "RUF",
+    "S",
+    "UP",
+    "W",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# See https://github.com/astral-sh/ruff/issues/4368
+"tests/**/*.py" = [
+    "S101", # Allow `assert` in tests
+]
