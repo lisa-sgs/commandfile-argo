@@ -36,4 +36,4 @@ COPY --from=builder --chown=app:app /app/.venv /app/.venv
 
 # Run the application
 ENV PATH="/app/.venv/bin:$PATH"
-CMD ["generate-commandfile"]
+ENTRYPOINT ["generate-commandfile"]
